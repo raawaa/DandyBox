@@ -12,7 +12,7 @@ namespace DandyBox.Test
             //string path = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DandyBox\\");
             //Console.WriteLine(path);
 
-            var files = FileManager.GetMediaFiles(@"E:\俞文杰手机微信文件备份\");
+            var files = FileManager.GetMediaFiles(@"K:\Porn");
             foreach (var file in files)
             {
                 Console.WriteLine(file);

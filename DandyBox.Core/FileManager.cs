@@ -15,16 +15,14 @@ namespace DandyBox.Core
         public static IEnumerable<string> GetMediaFiles(string path)
         {
 
-            string[] mediaExtensions = { ".avi" };
+            string[] mediaExtensions = { ".avi", ".avi", ".mp4", ".mkv", ".mpg", ".rmvb", ".rm", ".mov", ".mpeg", ".flv", ".wmv", ".m4v" };
 
 
             // 考虑文件夹访问权限。如果用户选择了一个没有访问权限的文件夹……
-            var files = Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories);
-            var mediaFiles = from file in files
+            IEnumerable<string> files = Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories);
+            IEnumerable<string> mediaFiles = from file in files
                              where mediaExtensions.Contains(Path.GetExtension(file))
                              select file;
-
-
             return mediaFiles;
         }
     }
