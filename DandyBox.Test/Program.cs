@@ -15,7 +15,7 @@ namespace DandyBox.Test
             var files = FileManager.GetMediaFiles(@"K:\Porn");
             foreach (var file in files)
             {
-                Console.WriteLine(file);
+                FileManager.ParseProductCode(file);
             }
 
             Console.WriteLine("END OF INFO");
