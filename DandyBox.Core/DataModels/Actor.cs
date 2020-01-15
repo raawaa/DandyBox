@@ -4,11 +4,11 @@ using System.Text;
 
 namespace DandyBox.Core.DataModels
 {
-    class Actor
+    public class Actor
     {
         public int ActorId { get; set; }
         public string Name { get; set; }
-        public List<MovieInfo> Movies { get; set; }
-
+        public List<Movie> Movies { get; set; }
+        public List<ActorMovie> ActorMovies { get; set; }
     }
 }
