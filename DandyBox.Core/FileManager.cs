@@ -11,7 +11,7 @@ namespace DandyBox.Core
         /// <summary>
         /// 递归获取文件夹下的所有媒体文件
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="path">想要获取的文件夹路径</param>
         /// <returns></returns>
         public static IEnumerable<string> GetMediaFiles(string path)
         {
@@ -19,7 +19,7 @@ namespace DandyBox.Core
             string[] mediaExtensions = { ".avi", ".avi", ".mp4", ".mkv", ".mpg", ".rmvb", ".rm", ".mov", ".mpeg", ".flv", ".wmv", ".m4v" };
 
 
-            // 考虑文件夹访问权限。如果用户选择了一个没有访问权限的文件夹……
+            // TODO: 考虑文件夹访问权限。如果用户选择了一个没有访问权限的文件夹……
             IEnumerable<string> files = Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories);
             IEnumerable<string> mediaFiles = from file in files
                                              where mediaExtensions.Contains(Path.GetExtension(file))
@@ -30,8 +30,8 @@ namespace DandyBox.Core
         {
             var fileName = Path.GetFileNameWithoutExtension(filePath);
             fileName = fileName.ToLower();
-            string productCode = null;
             Console.ForegroundColor = ConsoleColor.Red;
+            string productCode;
             if (fileName.Contains("t28"))
             {
                 productCode = FindRegex(fileName, @"T28-?\d\d+");
@@ -49,7 +49,6 @@ namespace DandyBox.Core
                 Console.WriteLine($"{fileName}\t{productCode}");
 
             }
-
             else if (fileName.Contains("heydouga"))
             {
                 productCode = FindRegex(fileName, @"heydouga_?-?\d\d+");
@@ -104,8 +103,7 @@ namespace DandyBox.Core
                     Console.WriteLine($"{fileName}\t{productCode}");
 
             }
-
-            return productCode;
+return productCode;
         }
         /// <summary>
         /// Return the first match of the regString.
@@ -120,7 +118,6 @@ namespace DandyBox.Core
             if (matches.Count > 0)
             {
                 return matches.First().Value;
-
             }
             else
             {
