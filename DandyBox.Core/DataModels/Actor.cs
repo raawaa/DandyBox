@@ -8,7 +8,6 @@ namespace DandyBox.Core.DataModels
     {
         public int ActorId { get; set; }
         public string Name { get; set; }
-        public List<Movie> Movies { get; set; }
         public List<ActorMovie> ActorMovies { get; set; }
     }
 }
