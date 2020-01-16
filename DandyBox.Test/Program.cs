@@ -25,6 +25,8 @@ namespace DandyBox.Test
                 dbContext.Database.Migrate();
             }
 
+            string html=Crawler.LoadHtml(@"http://www.baidu.com");
+            Console.WriteLine(html);
             Console.WriteLine("END OF INFO");
             Console.ReadLine();
         }
