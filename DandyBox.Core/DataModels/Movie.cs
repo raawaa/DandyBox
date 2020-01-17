@@ -9,6 +9,7 @@ namespace DandyBox.Core.DataModels
         public int MovieId { get; set; }
         public string ProductId { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public string Director { get; set; }
         public int Length { get; set; }
         public string Studio { get; set; }
         public string Label { get; set; }
