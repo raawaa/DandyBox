@@ -27,7 +27,8 @@ namespace DandyBox.Test
 
             //string html=Crawler.LoadHtml(@"http://www.baidu.com");
 
-            Crawler.GetMovieInfo("LMPI-019");
+            var movieInfo1 = Crawler.GetMovieInfo("LMPI-019");
+            var movieInfo2 = Crawler.GetMovieInfo("IPX-121");
             Console.WriteLine("END OF INFO");
             Console.ReadLine();
         }

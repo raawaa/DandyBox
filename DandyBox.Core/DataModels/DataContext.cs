@@ -10,7 +10,7 @@ namespace DandyBox.Core.DataModels
     {
         public DbSet<MediaFile> MediaFiles { get; set; }
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Idol> Actors { get; set; }
+        public DbSet<Idol> Idols { get; set; }
         public DbSet<Genre> Genres { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -22,7 +22,7 @@ namespace DandyBox.Core.DataModels
 
             modelBuilder.Entity<IdolMovie>()
                 .HasOne(am => am.Movie)
-                .WithMany(m => m.ActorMovies)
+                .WithMany(m => m.IdolMovies)
                 .HasForeignKey(am => am.MovieId);
 
             modelBuilder.Entity<IdolMovie>()
