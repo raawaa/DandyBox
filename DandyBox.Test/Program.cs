@@ -16,8 +16,8 @@ namespace DandyBox.Test
             using (var db = new DataContext())
             {
                 db.Database.Migrate();
-                Movie movie1 = GenerateMovieEntity(movieInfo1, db, "LMPI-019");
-                Movie movie2 = GenerateMovieEntity(movieInfo2, db, "IPX-121");
+                Movie movie1 = AddOrUpdateMovie(movieInfo1, db, "LMPI-019");
+                Movie movie2 = AddOrUpdateMovie(movieInfo2, db, "IPX-121");
                 db.SaveChanges();
             }
             Console.WriteLine("END OF INFO");
@@ -30,7 +30,7 @@ namespace DandyBox.Test
         /// <param name="movieInfo"></param>
         /// <param name="db"></param>
         /// <returns></returns>
-        private static Movie GenerateMovieEntity(MovieInfo movieInfo, DataContext db, string productId)
+        private static Movie AddOrUpdateMovie(MovieInfo movieInfo, DataContext db, string productId)
         {
             var doUpdate = false;
             var movie = db.Movies

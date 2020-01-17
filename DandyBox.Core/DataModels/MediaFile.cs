@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DandyBox.Core.DataModels
+﻿namespace DandyBox.Core.DataModels
 {
     public class MediaFile
     {

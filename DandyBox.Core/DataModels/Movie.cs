@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DandyBox.Core.DataModels
 {
@@ -13,7 +12,7 @@ namespace DandyBox.Core.DataModels
         public int Length { get; set; }
         public string Studio { get; set; }
         public string Label { get; set; }
-        public List<MovieGenre> MovieGenres  { get; set; }
+        public List<MovieGenre> MovieGenres { get; set; }
         public string Title { get; set; }
         public List<MediaFile> MediaFiles { get; set; }
         public List<IdolMovie> IdolMovies { get; set; }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DandyBox.Core.DataModels
 {
@@ -15,6 +11,7 @@ namespace DandyBox.Core.DataModels
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=dandybox.db");
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<IdolMovie>()
@@ -29,7 +26,6 @@ namespace DandyBox.Core.DataModels
                 .HasOne(am => am.Idol)
                 .WithMany(a => a.ActorMovies)
                 .HasForeignKey(am => am.IdolId);
-
 
             modelBuilder.Entity<MovieGenre>()
                 .HasKey(mg => new { mg.MovieId, mg.GenreId });
@@ -46,7 +42,5 @@ namespace DandyBox.Core.DataModels
                 .HasIndex(m => m.ProductId)
                 .IsUnique();
         }
-
-
     }
 }
