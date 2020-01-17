@@ -20,13 +20,14 @@ namespace DandyBox.Test
             //    FileManager.ParseProductCode(file);
             //}
 
-            using (var dbContext = new DataContext())
-            {
-                dbContext.Database.Migrate();
-            }
+            //using (var dbContext = new DataContext())
+            //{
+            //    dbContext.Database.Migrate();
+            //}
 
-            string html=Crawler.LoadHtml(@"http://www.baidu.com");
-            Console.WriteLine(html);
+            //string html=Crawler.LoadHtml(@"http://www.baidu.com");
+
+            Crawler.GetMovieInfo("LMPI-019");
             Console.WriteLine("END OF INFO");
             Console.ReadLine();
         }
