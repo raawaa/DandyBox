@@ -12,6 +12,7 @@ namespace DandyBox.Core.DataModels
         public int Length { get; set; }
         public string Studio { get; set; }
         public string Label { get; set; }
+        public string Series { get; set; }
         public List<MovieGenre> MovieGenres { get; set; }
         public string Title { get; set; }
         public List<MediaFile> MediaFiles { get; set; }

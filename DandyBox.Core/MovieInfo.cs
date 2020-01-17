@@ -15,5 +15,6 @@ namespace DandyBox.Core
         public DateTime ReleaseDate { get; set; }
         public string Studio { get; set; }
         public string Title { get; set; }
+        public string Series { get; set; }
     }
 }

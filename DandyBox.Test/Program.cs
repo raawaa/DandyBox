@@ -47,6 +47,7 @@ namespace DandyBox.Test
                 movie.Length = movieInfo.Length;
                 movie.Studio = movieInfo.Studio;
                 movie.Title = movieInfo.Title;
+                movie.Series = movieInfo.Series;
                 movie.MovieGenres.Clear();
                 movie.IdolMovies.Clear();
             }
@@ -60,6 +61,7 @@ namespace DandyBox.Test
                     Length = movieInfo.Length,
                     Studio = movieInfo.Studio,
                     Title = movieInfo.Title,
+                    Series = movieInfo.Series,
                     MovieGenres = new List<MovieGenre>(),
                     IdolMovies = new List<IdolMovie>()
                 };

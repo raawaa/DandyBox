@@ -33,6 +33,10 @@ namespace DandyBox.Core
                 .SelectSingleNode("//span[text()='導演:']/following-sibling::a");
             string director = directorNode == null ? null : directorNode.InnerText;
 
+            var seriesNode = htmlDoc.DocumentNode
+                .SelectSingleNode("//span[text()='系列:']/following-sibling::a");
+            string series = seriesNode == null ? null : seriesNode.InnerText;
+
             string lengthText = htmlDoc.DocumentNode
             .SelectSingleNode("//span[text()='長度:']/../text()")
             .InnerText;
@@ -78,7 +82,8 @@ namespace DandyBox.Core
                 Genres = genres,
                 Idols = idols,
                 Title = title,
-                Director = director
+                Director = director,
+                Series=series
             };
         }
 
