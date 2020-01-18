@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DandyBox.Core", "DandyBox.Core\DandyBox.Core.csproj", "{6F3811A8-BF55-41CB-9257-58C117E75A2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DandyBox.Test", "DandyBox.Test\DandyBox.Test.csproj", "{092113F3-32FF-4873-A7B0-151286F9331F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DandyBox.Test", "DandyBox.Test\DandyBox.Test.csproj", "{092113F3-32FF-4873-A7B0-151286F9331F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DandyBox.WPF", "DandyBox.WPF\DandyBox.WPF.csproj", "{302D641A-B44E-496A-A878-6B650DA73280}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{092113F3-32FF-4873-A7B0-151286F9331F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{092113F3-32FF-4873-A7B0-151286F9331F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{092113F3-32FF-4873-A7B0-151286F9331F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302D641A-B44E-496A-A878-6B650DA73280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302D641A-B44E-496A-A878-6B650DA73280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302D641A-B44E-496A-A878-6B650DA73280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302D641A-B44E-496A-A878-6B650DA73280}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
