@@ -22,20 +22,21 @@ namespace DandyBox.Core
             string productId = htmlDoc.DocumentNode
                 .SelectSingleNode("//span[text()='識別碼:']/following-sibling::span")
                 .InnerText;
+
             string releaseDateText = htmlDoc.DocumentNode
                 .SelectSingleNode("//span[text()='發行日期:']/../text()")
                 .InnerText.Trim();
+
             DateTime releaseDate = DateTime.ParseExact(
                 releaseDateText,
                 "yyyy-MM-dd",
                 System.Globalization.CultureInfo.InvariantCulture);
-            var directorNode = htmlDoc.DocumentNode
-                .SelectSingleNode("//span[text()='導演:']/following-sibling::a");
-            string director = directorNode == null ? null : directorNode.InnerText;
 
-            var seriesNode = htmlDoc.DocumentNode
-                .SelectSingleNode("//span[text()='系列:']/following-sibling::a");
-            string series = seriesNode == null ? null : seriesNode.InnerText;
+            string director = htmlDoc.DocumentNode
+                .SelectSingleNode("//span[text()='導演:']/following-sibling::a")?.InnerText;
+
+            string series = htmlDoc.DocumentNode
+                .SelectSingleNode("//span[text()='系列:']/following-sibling::a")?.InnerText;
 
             string lengthText = htmlDoc.DocumentNode
             .SelectSingleNode("//span[text()='長度:']/../text()")
@@ -46,13 +47,14 @@ namespace DandyBox.Core
             string studio = htmlDoc.DocumentNode
                 .SelectSingleNode("//span[text()='製作商:']/following-sibling::a")
                 .InnerText;
+
             string label = htmlDoc.DocumentNode
                 .SelectSingleNode("//span[text()='發行商:']/following-sibling::a")
                 .InnerText;
 
+            List<Genre> genres = new List<Genre>();
             HtmlNodeCollection genreNodes = htmlDoc.DocumentNode
                 .SelectNodes("//p[text()='類別:']//following-sibling::p[position()=1]/span[@class='genre']");
-            List<Genre> genres = new List<Genre>();
             if (genreNodes != null)
             {
                 foreach (var node in genreNodes)
@@ -61,9 +63,9 @@ namespace DandyBox.Core
                 }
             }
 
+            List<Idol> idols = new List<Idol>();
             HtmlNodeCollection idolNods = htmlDoc.DocumentNode
                 .SelectNodes("//div[@class='star-name']/a");
-            List<Idol> idols = new List<Idol>();
             if (idolNods != null)
             {
                 foreach (var node in idolNods)
@@ -83,15 +85,8 @@ namespace DandyBox.Core
                 Idols = idols,
                 Title = title,
                 Director = director,
-                Series=series
+                Series = series
             };
-        }
-
-        private static string LoadHtml(string url)
-        {
-            HtmlWeb web = new HtmlWeb();
-            var htmlDoc = web.Load(url);
-            return htmlDoc.Text;
         }
     }
 }
