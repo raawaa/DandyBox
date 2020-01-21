@@ -8,7 +8,7 @@ namespace DandyBox.Core
 {
     public static class Crawler
     {
-        public static MovieInfo GetMovieInfo(string fanhao)
+        public static Movie FetchMoiveInfo(string fanhao)
         {
             var domainUrl = @"https://www.javbus.icu/";
             var fanhao_url = Url.Combine(domainUrl, fanhao);
@@ -74,19 +74,37 @@ namespace DandyBox.Core
                 }
             }
 
-            return new MovieInfo
+            var movie = new Movie
             {
                 ProductId = productId,
                 Length = length,
                 Studio = studio,
                 Label = label,
                 ReleaseDate = releaseDate,
-                Genres = genres,
-                Idols = idols,
                 Title = title,
                 Director = director,
                 Series = series
             };
+
+            movie.MovieGenres = new List<MovieGenre>();
+            genres.ForEach(g => movie.MovieGenres.Add(new MovieGenre { Movie = movie, Genre = g }));
+            movie.IdolMovies = new List<IdolMovie>();
+            idols.ForEach(i => movie.IdolMovies.Add(new IdolMovie { Movie = movie, Idol = i }));
+
+            return movie;
+            //return new MovieInfo
+            //{
+            //    ProductId = productId,
+            //    Length = length,
+            //    Studio = studio,
+            //    Label = label,
+            //    ReleaseDate = releaseDate,
+            //    Genres = genres,
+            //    Idols = idols,
+            //    Title = title,
+            //    Director = director,
+            //    Series = series
+            //};
         }
     }
 }

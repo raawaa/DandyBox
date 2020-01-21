@@ -44,6 +44,12 @@ namespace DandyBox.Core.DataModels
             modelBuilder.Entity<Movie>()
                 .HasIndex(m => m.ProductId)
                 .IsUnique();
+
+            // MediaFile - Movie relationship is optional
+            modelBuilder.Entity<MediaFile>()
+                .HasOne(mf => mf.Movie)
+                .WithMany(m => m.MediaFiles)
+                .IsRequired(false);
         }
     }
 }

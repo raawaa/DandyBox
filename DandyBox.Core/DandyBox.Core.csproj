@@ -9,6 +9,22 @@
     <Compile Remove="Migrations\20200116041453_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20200116043047_InitialCreate.cs" />
     <Compile Remove="Migrations\20200116043047_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200117075751_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200117075751_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200117182824_AddMovieDirector.cs" />
+    <Compile Remove="Migrations\20200117182824_AddMovieDirector.Designer.cs" />
+    <Compile Remove="Migrations\20200117191936_AddMovieSeries.cs" />
+    <Compile Remove="Migrations\20200117191936_AddMovieSeries.Designer.cs" />
+    <Compile Remove="Migrations\20200121015612_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200121015612_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200121063709_AddMediaFileParsedCode.cs" />
+    <Compile Remove="Migrations\20200121063709_AddMediaFileParsedCode.Designer.cs" />
+    <Compile Remove="Migrations\20200121072806_SetMoiveFileRelationshipNotUnique.cs" />
+    <Compile Remove="Migrations\20200121072806_SetMoiveFileRelationshipNotUnique.Designer.cs" />
+    <Compile Remove="Migrations\20200121072921_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200121072921_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200121074355_MediaFileNullableForeignKey.cs" />
+    <Compile Remove="Migrations\20200121074355_MediaFileNullableForeignKey.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

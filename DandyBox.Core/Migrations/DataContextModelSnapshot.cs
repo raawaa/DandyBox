@@ -71,6 +71,9 @@ namespace DandyBox.Core.Migrations
                     b.Property<int?>("MovieId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ParsedCode")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("MediaFileId");
 
                     b.HasIndex("MovieId");
@@ -148,7 +151,7 @@ namespace DandyBox.Core.Migrations
 
             modelBuilder.Entity("DandyBox.Core.DataModels.MediaFile", b =>
                 {
-                    b.HasOne("DandyBox.Core.DataModels.Movie", null)
+                    b.HasOne("DandyBox.Core.DataModels.Movie", "Movie")
                         .WithMany("MediaFiles")
                         .HasForeignKey("MovieId");
                 });

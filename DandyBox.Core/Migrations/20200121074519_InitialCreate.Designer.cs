@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DandyBox.Core.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200117182824_AddMovieDirector")]
-    partial class AddMovieDirector
+    [Migration("20200121074519_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,6 +73,9 @@ namespace DandyBox.Core.Migrations
                     b.Property<int?>("MovieId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ParsedCode")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("MediaFileId");
 
                     b.HasIndex("MovieId");
@@ -99,6 +102,9 @@ namespace DandyBox.Core.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Series")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Studio")
@@ -147,7 +153,7 @@ namespace DandyBox.Core.Migrations
 
             modelBuilder.Entity("DandyBox.Core.DataModels.MediaFile", b =>
                 {
-                    b.HasOne("DandyBox.Core.DataModels.Movie", null)
+                    b.HasOne("DandyBox.Core.DataModels.Movie", "Movie")
                         .WithMany("MediaFiles")
                         .HasForeignKey("MovieId");
                 });

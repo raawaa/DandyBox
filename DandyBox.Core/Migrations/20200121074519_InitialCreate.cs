@@ -41,9 +41,11 @@ namespace DandyBox.Core.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ProductId = table.Column<string>(nullable: true),
                     ReleaseDate = table.Column<DateTime>(nullable: false),
+                    Director = table.Column<string>(nullable: true),
                     Length = table.Column<int>(nullable: false),
                     Studio = table.Column<string>(nullable: true),
                     Label = table.Column<string>(nullable: true),
+                    Series = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -82,6 +84,7 @@ namespace DandyBox.Core.Migrations
                     MediaFileId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     FilePath = table.Column<string>(nullable: true),
+                    ParsedCode = table.Column<string>(nullable: true),
                     MovieId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
