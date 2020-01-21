@@ -14,6 +14,7 @@ namespace DandyBox.Core.DataModels
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Idol-Movie many-many relationship
             modelBuilder.Entity<IdolMovie>()
                 .HasKey(t => new { t.IdolId, t.MovieId });
 
@@ -27,6 +28,7 @@ namespace DandyBox.Core.DataModels
                 .WithMany(a => a.ActorMovies)
                 .HasForeignKey(am => am.IdolId);
 
+            // Movie-Genre many-many relationship
             modelBuilder.Entity<MovieGenre>()
                 .HasKey(mg => new { mg.MovieId, mg.GenreId });
             modelBuilder.Entity<MovieGenre>()
@@ -38,6 +40,7 @@ namespace DandyBox.Core.DataModels
                 .WithMany(g => g.MovieGenres)
                 .HasForeignKey(mg => mg.GenreId);
 
+            // Movie's ProductId as uniqe index
             modelBuilder.Entity<Movie>()
                 .HasIndex(m => m.ProductId)
                 .IsUnique();
