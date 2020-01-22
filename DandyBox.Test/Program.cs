@@ -23,17 +23,18 @@ namespace DandyBox.Test
 
             // Get mediafile on disk
 
-            var mediaFiles = FileManager.GetMediaFiles(@"C:\Users\raawaa\Videos\DandyBoxTestMediaFiles");
+            IEnumerable<MediaFile> mediaFilesOnDisk = FileManager.GetMediaFiles(@"C:\Users\raawaa\Videos\DandyBoxTestMediaFiles").Select(f=>new MediaFile(f));
             using (var _context = new DataContext())
             {
                 _context.Database.Migrate();
-                var mixedMediaFiles = new List<MediaFile>();
-                foreach (var file in mediaFiles)
-                {
-                    Console.WriteLine($"process mediafile: ${file.FullName}");
-                    mixedMediaFiles.Add(_context.MediaFiles.SingleOrDefault(f => f.FilePath == file.FullName) ?? new MediaFile { FilePath = file.FullName });
-                }
-                _context.MediaFiles.UpdateRange(mixedMediaFiles);
+                var mediaFilesInDb = _context.MediaFiles.ToList();
+                //var mixedMediaFiles = new List<MediaFile>();
+                //foreach (var file in mediaFileInfos)
+                //{
+                //    Console.WriteLine($"process mediafile: ${file.FullName}");
+                //    mixedMediaFiles.Add(_context.MediaFiles.SingleOrDefault(f => f.FilePath == file.FullName) ?? new MediaFile(file));
+                //}
+                _context.MediaFiles.UpdateRange(mediaFilesInDb.Union(mediaFilesOnDisk));
                 _context.SaveChanges();
             }
 

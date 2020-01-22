@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DandyBox.Core\DandyBox.Core.csproj" />
+  </ItemGroup>
+
 </Project>
